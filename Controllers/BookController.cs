@@ -23,20 +23,20 @@ namespace HotBooks.Controllers
         {
             var hotels = _context.Hotels.OrderBy(c => c.Name).ToList();
 
-            // pass the categories data to the view for display to the shopper
+            
             return View(hotels);
 
         }
         public IActionResult Browse(int id)
         {
-            // query the db for the products in the selected category
+            
             var rooms = _context.Rooms.Include(r => r.Hotel).Where(r => r.HotelId == id).OrderBy(r => r.RoomNo).ToList();
 
-            // get the Category name for display in the page heading
+            
             ViewBag.Hotel = rooms[00].Hotel.Name;
-            //ViewBag.Category = _context.Categories.Find(id).Name.ToString();
+            
 
-            // load the Browse view & pass the list of products for display
+           
             return View(rooms);
         }
     }

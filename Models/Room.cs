@@ -14,7 +14,7 @@ namespace HotBooks.Models
         public int RoomNo { get; set; }
         [Range(1, 10)]
         public string NoOfBed { get; set; }
-        [DisplayFormat(DataFormatString = "{0:c}")]
+        [DisplayFormat(DataFormatString = "{0:c}")] 
         [Range(0.01, 1000)]
         public double Price { get; set; }
         public string AboutRoom { get; set; }
