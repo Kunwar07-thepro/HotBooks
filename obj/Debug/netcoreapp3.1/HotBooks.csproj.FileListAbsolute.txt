@@ -199,6 +199,7 @@ C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\Razor\Areas\Identit
 C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\Razor\Views\Book\Index.cshtml.g.cs
 C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Google.dll
+C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll
 C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\HotBooks.csproj.CoreCompileInputs.cache
 C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\HotBooks.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\HotBooks.MvcApplicationPartsAssemblyInfo.cache

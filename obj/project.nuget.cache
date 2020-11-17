@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "IihEPKYwVigyyrwoHArWh27IJwCyAmVJ6bSDTcbM0mqLu6FIJKq3VICMy1FmxisSIwW4MJmnq/M0BW7FjuWwfQ==",
+  "dgSpecHash": "WvCs4YlYpUiWNBKi+bQtaArIbeJ5qc3mgS21p2Q4kT9C7izRz6eTpe52Jk+jsEZPHfv9kM8zm5LNYPwgMFSq7g==",
   "success": true,
   "projectFilePath": "C:\\Users\\surya\\source\\repos\\HotBooks\\HotBooks.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\surya\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\3.1.9\\microsoft.aspnetcore.authentication.google.3.1.9.nupkg.sha512",
+    "C:\\Users\\surya\\.nuget\\packages\\microsoft.aspnetcore.authentication.microsoftaccount\\3.1.9\\microsoft.aspnetcore.authentication.microsoftaccount.3.1.9.nupkg.sha512",
     "C:\\Users\\surya\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.9\\microsoft.aspnetcore.cryptography.internal.3.1.9.nupkg.sha512",
     "C:\\Users\\surya\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.9\\microsoft.aspnetcore.cryptography.keyderivation.3.1.9.nupkg.sha512",
     "C:\\Users\\surya\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\3.1.9\\microsoft.aspnetcore.diagnostics.entityframeworkcore.3.1.9.nupkg.sha512",

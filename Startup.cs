@@ -41,6 +41,14 @@ namespace HotBooks
 
                 options.ClientId = googleAuthNSection["ClientId"];
                 options.ClientSecret = googleAuthNSection["ClientSecret"];
+            })
+            .AddMicrosoftAccount(microsoftOptions =>
+            {
+                IConfigurationSection configuration =
+                    Configuration.GetSection("Authentication:Microsoft");
+
+                microsoftOptions.ClientId = configuration["ClientId"];
+                microsoftOptions.ClientSecret = configuration["ClientSecret"];
             });
             services.AddControllersWithViews();
             services.AddRazorPages();

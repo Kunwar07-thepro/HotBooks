@@ -25,6 +25,7 @@
       "HotBooks/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.Google": "3.1.9",
+          "Microsoft.AspNetCore.Authentication.MicrosoftAccount": "3.1.9",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "3.1.9",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "3.1.9",
           "Microsoft.AspNetCore.Identity.UI": "3.1.9",
@@ -311,6 +312,17 @@
         },
         "compile": {
           "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.Google.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.MicrosoftAccount/3.1.9": {
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll": {
+            "assemblyVersion": "3.1.9.0",
+            "fileVersion": "3.100.920.47309"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.MicrosoftAccount.dll": {}
         }
       },
       "Microsoft.AspNetCore.Cryptography.Internal/3.1.9": {
@@ -4122,6 +4134,13 @@
       "sha512": "sha512-RWTckcvgtVWrgMZkAMECzjvrE7luoQDSJNTLKw83LdClLMdCW1yaJjp4WmTOkZfjBtsHsGG16YLc1yGQV4HKSQ==",
       "path": "microsoft.aspnetcore.authentication.google/3.1.9",
       "hashPath": "microsoft.aspnetcore.authentication.google.3.1.9.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Authentication.MicrosoftAccount/3.1.9": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-n4huCO2hAh5mrLIwYn6/Yqcxf70NK/drBLfxOscIeWT346Bf6z5IQPp7RVZ2gN9WnT+WZHGZ0V5xyPqu7RZBwA==",
+      "path": "microsoft.aspnetcore.authentication.microsoftaccount/3.1.9",
+      "hashPath": "microsoft.aspnetcore.authentication.microsoftaccount.3.1.9.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Cryptography.Internal/3.1.9": {
       "type": "package",
