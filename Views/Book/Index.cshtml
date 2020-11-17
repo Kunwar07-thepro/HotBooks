@@ -14,6 +14,12 @@
                     <div class="card mb-4 text-center h-100">
                         <div class="card-body">
                             <a asp-controller="Book" asp-action="Browse" asp-route-id="@c.Id">@c.Name</a>
+                            @if (c.Image != null)
+                            {
+                            <img src="~/img/hotel-uploads/@c.Image" alt="Hotel Image" class="thumb" /> }
+                             else
+                             {
+                               <img src="~/img/hotel-uploads/placeholder.jpg" alt="Placeholder Image" class="thumb" />}
                         </div>
                     </div>
                 </div>}

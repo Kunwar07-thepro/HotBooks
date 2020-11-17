@@ -1,0 +1,27 @@
+﻿@model IEnumerable<HotBooks.Models.Room>
+
+@{ ViewData["Title"] = "Rooms Available " + ViewBag.Hotel;
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h1>Rooms Available @ViewBag.Category</h1>
+
+<section class="row card-group">
+    @foreach (var p in Model)
+    {<!--css from https://stackoverflow.com/questions/36430816/bootstrap-4-card-deck-with-number-of-columns-based-on-viewport?noredirect=1&lq=1-->
+                        <div class="col-sm-6 col-lg-4 mb-3">
+                            <div class="card mb-4 text-center h-100">
+                                <div class="card-body">
+                                    <a asp-controller="Rooms" asp-action="Details" asp-route-id="@p.Id" class="h5">@p.RoomNo</a>
+                                    <h6>@String.Format("{0:c}", p.Price)</h6>
+                                    @if (p.Image != null)
+                                    {
+                    <img src="~/img/room-uploads/@p.Image" alt="Room Image" class="thumb" /> }
+                else
+                {
+<img src="~/img/room-uploads/placeholder.jpg" alt="Placeholder Image" class="thumb" />}
+
+                                </div>
+                            </div>
+                        </div>}
+</section>
+
