@@ -9,18 +9,24 @@
 
 <section class="row card-group">
     @foreach (var c in Model)
-    {<!--css from https://stackoverflow.com/questions/36430816/bootstrap-4-card-deck-with-number-of-columns-based-on-viewport?noredirect=1&lq=1-->
-                <div class="col-sm-6 col-lg-4 mb-3">
-                    <div class="card mb-4 text-center h-100">
-                        <div class="card-body">
-                            <a asp-controller="Book" asp-action="Browse" asp-route-id="@c.Id">@c.Name</a>
-                            @if (c.Image != null)
-                            {
-                            <img src="~/img/hotel-uploads/@c.Image" alt="Hotel Image" class="thumb" /> }
-                             else
-                             {
-                               <img src="~/img/hotel-uploads/placeholder.jpg" alt="Placeholder Image" class="thumb" />} 
-                        </div>
-                    </div>
-                </div>}
+    {<!--css from https://getbootstrap.com/docs/4.0/components/card/-->
+        <div class="card" style="width: 18rem;">
+            @if (c.Image != null)
+            {
+                <img class="card-img-top" src="~/img/hotel-uploads/@c.Image" alt="Hotel Image">}
+            else
+            {<img class="card-img-top" src="~/img/hotel-uploads/placeholder.jpg" alt="Placeholder Image">}
+            <div class="card-body">
+                <h5 class="card-title"><b>@c.Name</b></h5>
+                <p class="card-text"><b>Address</b> : @c.Address</p>
+                <p class="card-text">@String.Format("{0:c}", c.Discription)</p>
+                <a class="btn btn-primary" asp-controller="Book" asp-action="ShowRooms" asp-route-id="@c.Id">Show Rooms</a>
+            </div>
+        </div>
+
+       
+
+    }
+
+
 </section>

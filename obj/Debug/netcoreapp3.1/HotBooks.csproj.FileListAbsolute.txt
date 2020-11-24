@@ -203,4 +203,5 @@ C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Microsoft.AspNetCor
 C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\HotBooks.csproj.CoreCompileInputs.cache
 C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\HotBooks.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\HotBooks.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\Razor\Views\Book\Browse.cshtml.g.cs
+C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\Razor\Views\Book\ShowRooms.cshtml.g.cs
+C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\Razor\Views\Book\Details.cshtml.g.cs

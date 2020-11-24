@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HotBooks.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace HotBooks.Controllers
 {
+  
     public class BookController : Controller
     {
         // db connection
@@ -27,7 +29,9 @@ namespace HotBooks.Controllers
             return View(hotels);
 
         }
-        public IActionResult Browse(int id)
+       // [Authorize(Roles = "Customer")]
+       // [Authorize(Roles = "Administrator")]
+        public IActionResult ShowRooms(int id)
         {
             
             var rooms = _context.Rooms.Include(r => r.Hotel).Where(r => r.HotelId == id).OrderBy(r => r.RoomNo).ToList();
@@ -39,5 +43,23 @@ namespace HotBooks.Controllers
            
             return View(rooms);
         }
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var room = await _context.Rooms
+                .Include(r => r.Hotel)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (room == null)
+            {
+                return NotFound();
+            }
+
+            return View(room);
+        }
+
     }
 }

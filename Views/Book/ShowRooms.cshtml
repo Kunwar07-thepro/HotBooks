@@ -1,0 +1,37 @@
+﻿@model IEnumerable<HotBooks.Models.Room>
+
+@{ ViewData["Title"] = "Rooms Available " + ViewBag.Hotel;
+    Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h1>Rooms Available @ViewBag.Category</h1>
+
+<section class="row card-group">
+    @if (User.IsInRole("Customer") || User.IsInRole("Administrator"))
+    {
+@foreach (var p in Model)
+{<!--css from https://getbootstrap.com/docs/4.0/components/card/-->
+
+
+                        <div class="card" style="width: 18rem;">
+                            @if (p.Image != null)
+                            {
+        <img class="card-img-top" src="~/img/room-uploads/@p.Image" alt="Room Image"> }
+                            else
+                            {
+        <img class="card-img-top" src="~/img/room-uploads/placeholder.jpg" alt="Placeholder Image">}
+                        <div class="card-body">
+                            <h5 class="card-title">Room Number : @p.RoomNo</h5>
+                            
+                           
+                            <a class="btn btn-primary" asp-controller="Book" asp-action="Details" asp-route-id="@p.Id">Details</a>
+                        </div>
+                        </div>} }
+            else
+            {
+<h5> You have to log in first.</h5>
+    }
+
+
+
+</section>
+

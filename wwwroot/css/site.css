@@ -36,7 +36,7 @@ html {
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #edc4e4;
 }
 .border-bottom {
   border-bottom: 1px solid #e5e5e5;
@@ -75,7 +75,13 @@ body {
    width : 75px;
 
 }
+.rimp{
+    width : 300px;
+}
 
 .navbar-light {
-    background-color: #FFA000;
+    background-color: #2c8f8b;
+}
+body {
+    background-color: #bef7f5;
 }
