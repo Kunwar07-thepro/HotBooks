@@ -11,21 +11,19 @@
 @foreach (var p in Model)
 {<!--css from https://getbootstrap.com/docs/4.0/components/card/-->
 
-
-                        <div class="card" style="width: 18rem;">
-                            @if (p.Image != null)
-                            {
-        <img class="card-img-top" src="~/img/room-uploads/@p.Image" alt="Room Image"> }
-                            else
-                            {
-        <img class="card-img-top" src="~/img/room-uploads/placeholder.jpg" alt="Placeholder Image">}
-                        <div class="card-body">
-                            <h5 class="card-title">Room Number : @p.RoomNo</h5>
-                            
-                           
-                            <a class="btn btn-primary" asp-controller="Book" asp-action="Details" asp-route-id="@p.Id">Details</a>
-                        </div>
-                        </div>} }
+    <div class="card" style="width: 18rem;">
+        @if (p.Image != null)
+        {
+            <img class="card-img-top" src="~/img/room-uploads/@p.Image" alt="Room Image">}
+        else
+        {<img class="card-img-top" src="~/img/room-uploads/placeholder.jpg" alt="Placeholder Image">}
+        <div class="card-body">
+            <h5 class="card-title"><b>@p.RoomNo</b></h5>
+            
+            <a class="btn btn-primary" asp-controller="Book" asp-action="Details" asp-route-id="@p.Id">Details</a>
+        </div>
+    </div>
+                        } }
             else
             {
 <h5> You have to log in first.</h5>
