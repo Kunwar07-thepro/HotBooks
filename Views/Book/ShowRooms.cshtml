@@ -14,14 +14,22 @@
     <div class="card" style="width: 18rem;">
         @if (p.Image != null)
         {
-            <img class="card-img-top" src="~/img/room-uploads/@p.Image" alt="Room Image">}
-        else
-        {<img class="card-img-top" src="~/img/room-uploads/placeholder.jpg" alt="Placeholder Image">}
-        <div class="card-body">
-            <h5 class="card-title"><b>@p.RoomNo</b></h5>
-            
-            <a class="btn btn-primary" asp-controller="Book" asp-action="Details" asp-route-id="@p.Id">Details</a>
-        </div>
+    <img class="card-img-top" src="~/img/room-uploads/@p.Image" alt="Room Image">}
+else
+{<img class="card-img-top" src="~/img/room-uploads/placeholder.jpg" alt="Placeholder Image">}
+       
+    <div class="card-body">
+        <h5 class="card-title"><b>@p.RoomNo</b></h5>
+
+        <a class="btn btn-primary" asp-controller="Book" asp-action="Details" asp-route-id="@p.Id">Details</a>
+        <form method="post" asp-controller="Book" asp-action="AddToBookList">
+            <input name="RoomId" id="RoomId" type="hidden" value="@p.Id" />
+            <fieldset class="form-group">
+            </fieldset>
+            <button class="btn btn-primary">Add to BookList</button>
+        </form>
+
+    </div>
     </div>
                         } }
             else

@@ -13,6 +13,7 @@ namespace HotBooks.Data
         //freference the data model class
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<Room> Rooms { get; set; }
+        public DbSet<BookList> BookList { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)

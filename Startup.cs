@@ -50,6 +50,7 @@ namespace HotBooks
                 microsoftOptions.ClientId = configuration["ClientId"];
                 microsoftOptions.ClientSecret = configuration["ClientSecret"];
             });
+            services.AddSession();
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
@@ -75,6 +76,7 @@ namespace HotBooks
 
             app.UseAuthentication();
             app.UseAuthorization();
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

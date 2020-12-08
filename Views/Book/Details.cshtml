@@ -8,7 +8,7 @@
 <h1>Details</h1>
 
 <div>
-    
+
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -45,12 +45,21 @@
             @Html.DisplayNameFor(model => model.Image)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Image)
+            @if (Model.Image != null)
+            {
+                <img class="thumb" src="~/img/room-uploads/@Model.Image" alt="Room Image">}
+            else
+            {<img class="thumb" src="~/img/room-uploads/placeholder.jpg" alt="Placeholder Image">}
         </dd>
 
     </dl>
+    <form method="post" asp-controller="Book" asp-action="AddToBookList" class=" = offset-sm-2">
+        <input name="RoomId" id="RoomId" type="hidden" value="@Model.Id" />
+        <fieldset class="form-group">
+        </fieldset>
+        <button class="btn btn-primary">Add to BookList</button>
+    </form>
 </div>
 <div>
-     |
-    <a asp-action="Index">Back to Hotels</a>
+    <a href="javascript:history.go(-1);">Back to List</a>
 </div>
