@@ -45,6 +45,67 @@ namespace HotBooks.Migrations
                     b.ToTable("BookList");
                 });
 
+            modelBuilder.Entity("HotBooks.Models.Booking", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("PostalCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Province")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Total")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Bookings");
+                });
+
+            modelBuilder.Entity("HotBooks.Models.BookingDetail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BookId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("BookingId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Cost")
+                        .HasColumnType("float");
+
+                    b.Property<int>("RoomId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BookingId");
+
+                    b.HasIndex("RoomId");
+
+                    b.ToTable("BookingDetails");
+                });
+
             modelBuilder.Entity("HotBooks.Models.Hotel", b =>
                 {
                     b.Property<int>("Id")
@@ -304,6 +365,19 @@ namespace HotBooks.Migrations
 
             modelBuilder.Entity("HotBooks.Models.BookList", b =>
                 {
+                    b.HasOne("HotBooks.Models.Room", "Room")
+                        .WithMany()
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("HotBooks.Models.BookingDetail", b =>
+                {
+                    b.HasOne("HotBooks.Models.Booking", "Booking")
+                        .WithMany("OrderDetails")
+                        .HasForeignKey("BookingId");
+
                     b.HasOne("HotBooks.Models.Room", "Room")
                         .WithMany()
                         .HasForeignKey("RoomId")

@@ -8,7 +8,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.Extensions.Configuration;
+using Stripe;
+using Stripe.Checkout;
 namespace HotBooks.Controllers
 {
   
@@ -17,11 +19,14 @@ namespace HotBooks.Controllers
         // db connection
         private readonly ApplicationDbContext _context;
 
+        private IConfiguration _iconfiguration;
+
         // constructor that accepts a db context object
-        public BookController(ApplicationDbContext context)
+        public BookController(ApplicationDbContext context, IConfiguration configuration)
         {
             // instantiate an instance of our db connection when this class is instantiated
             _context = context;
+            _iconfiguration = configuration;
         }
         public IActionResult Index()
         {
@@ -107,23 +112,23 @@ namespace HotBooks.Controllers
             return HttpContext.Session.GetString("CustomerId");
         }
 
-        // GET: /Shop/BookList
+        // GET
         public IActionResult BookList()
         {
-            // get items in current user's BookList
+            
             var bookListRooms = _context.BookList.Include(c => c.Room).Where(c => c.CustomerId == HttpContext.Session.GetString("CustomerId")).ToList();
           
            
-            // display a view and pass the items for display
+            
             return View(bookListRooms);
         }
-        // GET: /Shop/RemoveFromCBookList/3
+       
         public IActionResult RemoveFromBookList(int id)
         {
-            // find the item with this PK value
+            
             var BookListItem = _context.BookList.Find(id);
 
-            // delete record from BookList table
+            
             if (BookListItem != null)
             {
                 _context.BookList.Remove(BookListItem);
@@ -135,13 +140,129 @@ namespace HotBooks.Controllers
             return RedirectToAction("BookList");
         }
 
-        // GET: /Shop/Checkout
+       
         [Authorize]
         public IActionResult Checkout()
         {
-            // load checkout form
+            
+            return View();
+        }
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Checkout([Bind("Address,City,Province,PostalCode")] Models.Booking booking)
+        {
+            
+            booking.OrderDate = DateTime.Now;
+            booking.CustomerId = User.Identity.Name;
+            booking.Total = (from c in _context.BookList
+                           where c.CustomerId == HttpContext.Session.GetString("CustomerId")
+                           select  c.Price).Sum();
+
+            
+            HttpContext.Session.SetObject("Booking", booking);
+
+           
+            return RedirectToAction("Payment");
+        }
+
+        [Authorize]
+        public IActionResult Payment()
+        {
+            // get the order from the session
+            var booking = HttpContext.Session.GetObject<Models.Booking>("Booking");
+
+            // send the total to the view for display using the ViewBag
+            ViewBag.Total = booking.Total;
+
+            // read the Stripe Publishable Key from the configuration and put in ViewBag for the payment form
+            ViewBag.PublishableKey = _iconfiguration.GetSection("Stripe")["PublishableKey"];
+
+            // load the Payment view
             return View();
         }
 
+        [Authorize]
+        [HttpPost]
+        public IActionResult ProcessPayment()
+        {
+            // get the order from the session variable
+            var booking = HttpContext.Session.GetObject<Models.Booking>("Booking");
+
+            // get the Stripe Secret Key from the configuration and pass it before we can create a new checkout session
+            StripeConfiguration.ApiKey = _iconfiguration.GetSection("Stripe")["SecretKey"];
+
+            // code will go here to create and submit Stripe payment charge
+            var options = new SessionCreateOptions
+            {
+                PaymentMethodTypes = new List<string>
+                {
+                  "card",
+                },
+                LineItems = new List<SessionLineItemOptions>
+                {
+                  new SessionLineItemOptions
+                  {
+                    PriceData = new SessionLineItemPriceDataOptions
+                    {
+                      UnitAmount = (long?)(booking.Total * 100),
+                      Currency = "cad",
+                      ProductData = new SessionLineItemPriceDataProductDataOptions
+                      {
+                        Name = "HotBooks Bookings",
+                      },
+                    },
+                    Quantity = 1,
+                  },
+                },
+                Mode = "payment",
+                SuccessUrl = "https://" + Request.Host + "/Book/SaveBooking",
+                CancelUrl = "https://" + Request.Host + "/Booking/BookList"
+            };
+
+            var service = new SessionService();
+            Session session = service.Create(options);
+            return Json(new { id = session.Id });
+        }
+
+        [Authorize]
+        public IActionResult SaveBooking()
+        {
+            // get the order from the session variable
+            var booking = HttpContext.Session.GetObject<Models.Booking>("Booking");
+
+            // save as new order to the db
+            _context.Bookings.Add(booking);
+            _context.SaveChanges();
+
+            // save the line items as new order details records
+            var cartItems = _context.BookList.Where(c => c.CustomerId == HttpContext.Session.GetString("CustomerId"));
+            foreach (var item in cartItems)
+            {
+                var bookingDetail = new BookingDetail
+                {
+                    RoomId = item.RoomId,
+                   
+                    Cost = item.Price,
+                    BookId = booking.Id
+                };
+
+                _context.BookingDetails.Add(bookingDetail);
+            }
+            _context.SaveChanges();
+
+           
+            foreach (var item in cartItems)
+            {
+                _context.BookList.Remove(item);
+            }
+            _context.SaveChanges();
+
+            // set the Session ItemCount variable (which shows in the navbar) back to zero
+            HttpContext.Session.SetInt32("ItemCount", 0);
+
+            
+            return RedirectToAction("Details", "Bookings", new { @id = booking.Id });
+        }
     }
 }

@@ -51,6 +51,8 @@ namespace HotBooks
                 microsoftOptions.ClientSecret = configuration["ClientSecret"];
             });
             services.AddSession();
+
+            services.AddSingleton<IConfiguration>(Configuration);
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

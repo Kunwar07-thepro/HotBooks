@@ -30,27 +30,31 @@
             @foreach (var item in Model)
             {
                 Total += (item.Price);
-                <tr>
-                    <td>
-                        <a asp-controller="Book" asp-Action="Details" asp-route-id="@item.RoomId">@item.Room.RoomNo</a>
-                    </td>
-                    <td>
-                        @if (item.Room.Image != null)
-                        {
-                            <img src="~/img/room-uploads/@item.Room.Image" alt="Room Image" class="thumb" /> }
-                        else
-                        {
-                            <img src="~/img/room-uploads/placeholder.jpg" alt="Placeholder Image" class="thumb" />}
-                    </td>
+            <tr>
+                <td>
+                    <a asp-controller="Book" asp-Action="Details" asp-route-id="@item.RoomId">@item.Room.RoomNo</a>
+                </td>
+                <td>
+                    <a asp-controller="Book" asp-Action="Details" asp-route-id="@item.RoomId">@item.Room.RoomNo</a>
+                </td>
 
-                    <td class="text-right">
-                        @String.Format("{0:c}", item.Price)
-                    </td>
+                <td>
+                    @if (item.Room.Image != null)
+                    {
+                        <img src="~/img/room-uploads/@item.Room.Image" alt="Room Image" class="thumb" /> }
+                    else
+                    {
+                        <img src="~/img/room-uploads/placeholder.jpg" alt="Placeholder Image" class="thumb" />}
+                </td>
 
-                    <td>
-                        <a asp-action="RemoveFromBookList" asp-route-id="@item.Id" onclick="return confirm('Are you sure you want to remove @item.Room.RoomNo from your Booklist?');">Delete</a>
-                    </td>
-                </tr>
+                <td class="text-right">
+                    @String.Format("{0:c}", item.Price)
+                </td>
+
+                <td>
+                    <a asp-action="RemoveFromBookList" asp-route-id="@item.Id" onclick="return confirm('Are you sure you want to remove @item.Room.RoomNo from your Booklist?');">Delete</a>
+                </td>
+            </tr>
             }
             <tr>
                 <td colspan="5" class="text-right">
@@ -67,7 +71,7 @@
 }
 else
 {
-    <h1>Your BookList is Empty</h1>
+    <h1 style="color:red">Your BookList is Empty</h1>
     <a class="btn btn-primary text-center" asp-action="Index">Start Exploring</a>
 }
 

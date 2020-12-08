@@ -14,6 +14,8 @@ namespace HotBooks.Data
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<BookList> BookList { get; set; }
+        public DbSet<Booking> Bookings { get; set; }
+        public DbSet<BookingDetail> BookingDetails { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
