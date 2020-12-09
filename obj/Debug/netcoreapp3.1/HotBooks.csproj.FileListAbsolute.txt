@@ -20,7 +20,6 @@ C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Microsoft.AspNetCor
 C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
 C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.dll
 C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
 C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -29,9 +28,6 @@ C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Microsoft.EntityFra
 C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
 C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
-C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
-C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
-C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
 C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
@@ -205,12 +201,16 @@ C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\Razor\Views\Book\De
 C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\Razor\Views\Book\BookList.cshtml.g.cs
 C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\Razor\Views\Book\Checkout.cshtml.g.cs
 C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Stripe.net.dll
-C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\HotBooks.csproj.CoreCompileInputs.cache
-C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\HotBooks.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\HotBooks.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\Razor\Views\Book\Payment.cshtml.g.cs
 C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\Razor\Views\Bookings\Create.cshtml.g.cs
 C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\Razor\Views\Bookings\Delete.cshtml.g.cs
 C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\Razor\Views\Bookings\Details.cshtml.g.cs
 C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\Razor\Views\Bookings\Edit.cshtml.g.cs
 C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\Razor\Views\Bookings\Index.cshtml.g.cs
+C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\HotBooks.csproj.CoreCompileInputs.cache
+C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\HotBooks.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\HotBooks.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\surya\source\repos\HotBooks\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll
