@@ -187,7 +187,7 @@ namespace HotBooks.Controllers
                 return View("Error");
             }
 
-            return View(room);
+            return View("Delete", room);
         }
 
         // POST: Rooms/Delete/5
