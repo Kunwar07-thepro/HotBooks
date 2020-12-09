@@ -214,4 +214,3 @@ C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\Razor\Views\Booking
 C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\Razor\Views\Bookings\Details.cshtml.g.cs
 C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\Razor\Views\Bookings\Edit.cshtml.g.cs
 C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\Razor\Views\Bookings\Index.cshtml.g.cs
-C:\Users\surya\source\repos\HotBooks\obj\Debug\netcoreapp3.1\Razor\Views\Bottles\Index.cshtml.g.cs

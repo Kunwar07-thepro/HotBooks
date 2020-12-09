@@ -97,16 +97,18 @@ namespace HotBooks.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                //return NotFound();
+                return View("Error");
             }
 
             var room = await _context.Rooms.FindAsync(id);
             if (room == null)
             {
-                return NotFound();
+                // return NotFound();
+                return View("Error");
             }
             ViewData["HotelId"] = new SelectList(_context.Hotels.OrderBy(h => h.Name), "Id", "Name", room.HotelId);
-            return View(room);
+            return View("Edit",room);
         }
 
         // POST: Rooms/Edit/5
@@ -172,7 +174,8 @@ namespace HotBooks.Controllers
         {
             if (id == null)
             {
-                return NotFound();
+                //return NotFound();
+                return View("Error");
             }
 
             var room = await _context.Rooms
@@ -180,7 +183,8 @@ namespace HotBooks.Controllers
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (room == null)
             {
-                return NotFound();
+                //return NotFound();
+                return View("Error");
             }
 
             return View(room);
